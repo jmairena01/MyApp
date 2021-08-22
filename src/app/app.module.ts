@@ -5,6 +5,12 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { ClientesService } from './clientes/clientes.service';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {path:'', redirectTo:'/clientes',pathMatch: 'full'},
+  {path:'clientes', component: ClientesComponent}
+]
 
 @NgModule({
   declarations: [
@@ -13,7 +19,8 @@ import { ClientesService } from './clientes/clientes.service';
     ClientesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [ClientesService],
   bootstrap: [AppComponent]
